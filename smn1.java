@@ -1,4 +1,3 @@
-// 1.
 import java.util.*;
 import java.util.concurrent.atomic.*;
 public class smn1 
@@ -29,6 +28,7 @@ public class smn1
         work.close();
     }
 
+// 1.
     public static List<Integer> findAvailableDivider(int number) {
         List<Integer> res = new ArrayList<>();
         for (int i = 1; i <= number; i++) 
@@ -42,26 +42,26 @@ public class smn1
     }
 
 // 2.
-public static List<Integer> findSimpleNumbers(int number) 
-{
-    int co = 0;
-    List<Integer> res = new ArrayList<>();
-    for (int i = 1; i <= number; i++) 
+    public static List<Integer> findSimpleNumbers(int number) 
     {
-        boolean sim = true;
-        for (int j = 2; j < i; j++) 
+        int co = 0;
+        List<Integer> res = new ArrayList<>();
+        for (int i = 1; i <= number; i++) 
         {
-            co++;
-            if (i % j == 0) 
+            boolean sim = true;
+            for (int j = 2; j < i; j++) 
             {
-                sim = false;
+                co++;
+                if (i % j == 0) 
+                {
+                    sim = false;
+                }
+            }
+            if (sim) 
+            {
+                res.add(i);
             }
         }
-        if (sim) 
-        {
-            res.add(i);
-        }
-    }
     // for (int i = 2; i <= number; i++) 
     // {
     //     if (i % i == 0 && i % 1 == 0) 
@@ -69,21 +69,23 @@ public static List<Integer> findSimpleNumbers(int number)
     //         res.add(i);
     //     }
     // }
-    System.out.println("Counter: " + co); //Сокращение вывода
-    return res;
-}
-public static int fiby(int number, AtomicInteger co) 
-{
-    co.incrementAndGet();
-    if(number == 1) 
-    {
-        return 0;
+        System.out.println("Counter: " + co); //Сокращение вывода
+        return res;
     }
-    else if (number == 2)
-    {
-        return 1;
-    }
-    return fiby(number - 1, co) + fiby(number - 2, co);
-}
 
-}
+// 3.
+    public static int fiby(int number, AtomicInteger co) 
+    {
+        co.incrementAndGet();
+        if(number == 1) 
+        {
+            return 0;
+        }
+        else if (number == 2)
+        {
+            return 1;
+        }
+        return fiby(number - 1, co) + fiby(number - 2, co);
+    }
+
+    }
