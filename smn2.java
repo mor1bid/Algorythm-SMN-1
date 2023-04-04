@@ -81,5 +81,6 @@ public static void insertSort(Integer array[])
             }
         }
     }
+    System.out.println(Arrays.asList(array));
 }
 }
